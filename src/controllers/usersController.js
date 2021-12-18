@@ -2,16 +2,22 @@ const express = require('express');
 const { dbAction, dbFail, dbSuccess } = require('../utils/dbHelper');
 const { hashValue, verifyHash } = require('../utils/hashHelper');
 const jwt = require('jsonwebtoken');
-const { authenticateToken } = require("../utils/middleware");
 
+//GET/api/users
 const getAllUsers = async (req, res) => {
-  
+  const sql = `SELECT * FROM users`;
+  const dbResult = await dbAction(sql);
+
+  if (dbResult === false) return dbFail(res);
+  dbSuccess(res, dbResult);
 }
+
 
 const getUserById = async (req, res) => {
   
 }
 
+//POST/api/users
 const createUser = async (req, res) => {
   console.log('req.body ===', req.body)
 
