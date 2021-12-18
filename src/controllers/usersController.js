@@ -12,13 +12,16 @@ const getAllUsers = async (req, res) => {
   dbSuccess(res, dbResult);
 }
 
-
+//GET/api/users/:id
 const getUserById = async (req, res) => {
-  // const sql = `SELECT * FROM users WHERE id=?`;
+  
+  const sql = `
+  SELECT * FROM users 
+  WHERE id=?
+  `;
 
-
-
-
+  const dbResult = await dbAction(sql, [req.params.id]);
+  res.send({ msg: 'success', data: dbResult[0] });
 
 }
 
@@ -97,9 +100,7 @@ const updateUser = async (req, res) => {
 
   res.status(500).json({ error: 'something went wrong' })
   
-
 }
-
 
 module.exports = {
   createUser,
