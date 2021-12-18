@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const bcryptjs = require('bcryptjs')
 
 
 const PORT = process.env.SERVER_PORT || 5000;
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 
 // Routes import
 const usersRoutes = require('./routes/v1/usersRoute');
+const req = require('express/lib/request');
 
 // Use routes
 app.use('/api', usersRoutes);

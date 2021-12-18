@@ -1,6 +1,6 @@
 const mysql = require('mysql2/promise');
 
-const { dbConfig } = require('../config');
+const { dbConfig } = require('../dbConfig');
 
 async function dbAction(sql, dbData = []) {
   try {
