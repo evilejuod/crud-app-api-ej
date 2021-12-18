@@ -3,8 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 
-
-const PORT = process.env.SERVER_PORT || 3000;
+const PORT = process.env.SERVER_PORT || 5000;
 
 const app = express();
 
@@ -17,8 +16,15 @@ app.get('/', (req, res) => {
   res.send('Hello express');
 });
 
-const sampleRoutes = require('./routes/v1/sampleRoute');
+// Routes import
+const usersRoutes = require('./routes/v1/usersRoute');
 
-app.use('/sample', sampleRoutes);
+// Use routes
+app.use('/api', usersRoutes);
+
+// 404 not found url
+app.all('*', (req, res) => {
+  res.status(404).send('Oops page not found');
+});
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
