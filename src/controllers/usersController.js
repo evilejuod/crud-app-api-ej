@@ -6,7 +6,13 @@ const jwt = require('jsonwebtoken');
 const { jwtSecret, dbConfig } = require('../dbConfig');
 const { authenticateToken } = require("../utils/middleware");
 
+const allUsers = async (req, res) => {
+    
+}
 
+const singleUser = async (req, res) => {
+    
+}
 
 const addUser = async (req, res) => {
     console.log('req.body ===', req.body)
@@ -35,10 +41,19 @@ const addUser = async (req, res) => {
       res.status(500).json({ error: 'something went wrong' })
 }
 
+const deleteUser = async (req, res) => {
+    
+}
+const updateUser = async (req, res) => {
+    
+}
+
 
 
 module.exports = {
     addUser,
-
-    
+    allUsers,
+    singleUser,
+    deleteUser,
+    updateUser
 };
