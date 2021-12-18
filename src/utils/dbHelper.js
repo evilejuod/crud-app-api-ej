@@ -4,7 +4,9 @@ const { dbConfig } = require('../dbConfig');
 
 async function dbAction(sql, dbData = []) {
   try {
+    console.log({ dbConfig })
     const conn = await mysql.createConnection(dbConfig);
+    console.log({ sql, dbData })
     const [dbResult] = await conn.execute(sql, dbData);
     await conn.end();
     return dbResult;
@@ -14,11 +16,11 @@ async function dbAction(sql, dbData = []) {
   }
 }
 
-function dbSuccess(res, data, errorCode = 200) {
-  res.status(errorCode).json({ msg: 'success', data });
+function dbSuccess(res, data, erroCode = 200) {
+  res.status(erroCode).json({ msg: 'success', data });
 }
-function dbFail(res, errText = 'Something went wrong', errorCode = 500) {
-  res.status(errorCode).json({ error: errText });
+function dbFail(res, errText = 'Something went wrong', erroCode = 500) {
+  res.status(erroCode).json({ error: errText });
 }
 
 module.exports = {

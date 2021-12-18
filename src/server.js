@@ -1,8 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const bcryptjs = require('bcryptjs')
 
+// Routes import
+const usersRoutes = require('./routes/v1/usersRoute');
 
 const PORT = process.env.SERVER_PORT || 5000;
 
@@ -12,14 +13,6 @@ const app = express();
 app.use(morgan('common'));
 app.use(cors());
 app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Hello express');
-});
-
-// Routes import
-const usersRoutes = require('./routes/v1/usersRoute');
-const req = require('express/lib/request');
 
 // Use routes
 app.use('/api', usersRoutes);

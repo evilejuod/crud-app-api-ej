@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const usersController = require('../../controllers/usersController')
 
-router.get('/users',  usersController.allUsers);
-router.get('/users/:id',  usersController.singleUser);
+router.get('/users',  usersController.getAllUsers);
+router.get('/users/:id',  usersController.getUserById);
 
-router.post('/users/add-user', usersController.addUser);
+router.post('/users', usersController.createUser);
 
 router.delete('/users/:id', usersController.deleteUser);
 
