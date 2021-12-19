@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const usersController = require('../../controllers/usersController')
+const { validateUser } = require('../../utils/validateHelper')
 
-router.get('/users',  usersController.getAllUsers);
-router.get('/users/:id',  usersController.getUserById);
+router.get('/users', usersController.getAllUsers);
+router.get('/users/:id', usersController.getUserById);
 
-router.post('/users', usersController.createUser);
+router.post('/users', validateUser, usersController.createUser);
 
 router.delete('/users/:id', usersController.deleteUser);
 

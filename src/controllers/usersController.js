@@ -3,6 +3,7 @@ const { dbAction, dbFail, dbSuccess } = require('../utils/dbHelper');
 const { hashValue, verifyHash } = require('../utils/hashHelper');
 const jwt = require('jsonwebtoken');
 
+
 //GET/api/users
 const getAllUsers = async (req, res) => {
   const sql = `SELECT * FROM users`;
@@ -15,10 +16,7 @@ const getAllUsers = async (req, res) => {
 //GET/api/users/:id
 const getUserById = async (req, res) => {
   
-  const sql = `
-  SELECT * FROM users 
-  WHERE id=?
-  `;
+  const sql = `SELECT * FROM users WHERE id=?`;
 
   const dbResult = await dbAction(sql, [req.params.id]);
   res.send({ msg: 'success', data: dbResult[0] });
