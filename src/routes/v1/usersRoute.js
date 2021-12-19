@@ -10,7 +10,7 @@ router.post('/users', validateUser, usersController.createUser);
 
 router.delete('/users/:id', usersController.deleteUser);
 
-router.put('/users/:id', usersController.updateUser);
+router.put('/users/:id', validateUser, usersController.updateUser);
 
 
 module.exports = router;
