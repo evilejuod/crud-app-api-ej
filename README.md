@@ -1,11 +1,11 @@
 # This is CRUD app 'Vartotojų kontrolė'
 
-A simple app to create, delete, update and read users.
-This is node js app from server side.
+A simple app to create, delete, update and read users from server side.
 
 ### Installation
-1. npm install
-2. copy '.env example' to '.env' and add your sql db strings
+1. run npm install
+2. change '.env example' to '.env', change port to http://localhost:5000/
+3. run npm start
 
 ### Dependencies
 1. bcryptjs
