@@ -7,7 +7,9 @@ async function validateUser(req, res, next) {
     name: joi.string().min(3).max(50).required(),
     age: joi.number().positive().required(),
     email: joi.string().email().required(),
-    password: joi.string().min(3),
+    password: joi.string().min(6).required(),
+    repeatPassword: joi.string().required().valid(joi.ref('password')),
+
   });
   try {
     await schema.validateAsync(req.body, { abortEarly: false });
