@@ -4,7 +4,7 @@ A simple app to create, delete, update and read users from server side.
 
 ### Installation
 1. run npm install
-2. change '.env example' to '.env', change port to http://localhost:5000/
+2. change '.env example' to '.env', change port to 5000
 3. run npm start
 
 ### Dependencies
